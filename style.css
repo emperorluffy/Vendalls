@@ -2,6 +2,7 @@
   height: 80px;
   background-image: linear-gradient(to right, grey, navy);
 }
+
 .nav {
   display: flex;
   justify-content: space-between;
