@@ -306,3 +306,201 @@ body {
     display: none;
   }
 }
+
+/* --- Premium Hero Section --- */
+.hero-section {
+  background-color: #ffffff;
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+.hero-container {
+  max-w: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Left Column Content Layout */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-tagline {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent-color);
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  font-size: 56px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  margin-bottom: 24px;
+}
+
+.hero-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-bottom: 40px;
+  max-width: 520px;
+}
+
+/* Call-to-Action Component Elements */
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 64px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: var(--transition-smooth);
+}
+
+.btn-primary {
+  background-color: var(--text-main);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #27272a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-main);
+  border: 1px solid #e2e8f0;
+}
+
+.btn-secondary:hover {
+  background-color: #fafafa;
+  border-color: var(--text-main);
+  transform: translateY(-2px);
+}
+
+.btn-secondary i {
+  font-size: 10px;
+}
+
+/* Trust Spec Badges */
+.hero-specs {
+  display: flex;
+  gap: 48px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 32px;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.spec-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.spec-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+}
+
+/* Right Column Image Frame Placement */
+.hero-visual {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.image-frame {
+  width: 100%;
+  max-width: 560px;
+  height: 520px;
+  background-color: #f8fafc; /* Sleek canvas for hardware visualization */
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Marked element ready for your graphic swap */
+.placeholder-overlay {
+  position: absolute;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 1px dashed #cbd5e1;
+  z-index: 2;
+}
+
+.hero-img-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.15; /* Subdued baseline visibility until you drop your file in */
+}
+
+/* --- Responsive Layout for Mobile Devices --- */
+@media (max-width: 900px) {
+  .hero-section {
+    padding: 48px 0;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .hero-title {
+    font-size: 38px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .btn {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .image-frame {
+    height: 380px;
+  }
+}
