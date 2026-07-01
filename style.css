@@ -1,14 +1,308 @@
-.header {
-  height: 80px;
-  background-image: linear-gradient(to right, grey, navy);
+/* --- Global Reset & Variables --- */
+:root {
+  --bg-primary: #ffffff;
+  --text-main: #0f0f10;
+  --text-muted: #64748b;
+  --accent-color: #d97706; /* Elegant amber accent */
+  --border-color: #f1f5f9;
+  --font-family: "Inter", sans-serif;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: #f8fafc;
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Sticky Header System --- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Top Announcement Bar --- */
+.announcement-bar {
+  background-color: var(--text-main);
+  color: #ffffff;
+  text-align: center;
+  padding: 9px 20px;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* --- Main Header Navigation --- */
+.header-main {
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  z-index: 10;
+}
+
+.header-container {
+  max-w: 1280px;
+  height: 80px; /* Spacious luxury padding */
+  margin: 0 auto;
+  padding: 0 32px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
-.nav__logo {
-  text-transform: uppercase;
-  font-weight: 800;
-  color: navy;
+
+/* --- Brand Typography --- */
+.logo a {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-decoration: none;
+  color: var(--text-main);
+  transition: var(--transition-smooth);
+}
+
+.logo .dot {
+  color: var(--accent-color);
+}
+
+/* --- Navigation Links --- */
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition-smooth);
+}
+
+.nav-link:hover {
+  color: var(--text-main);
+}
+
+.nav-link .arrow {
+  font-size: 10px;
+  transition: var(--transition-smooth);
+}
+
+.nav-link:hover .arrow {
+  transform: translateY(2px);
+  color: var(--text-main);
+}
+
+/* --- Action Hub & Buttons --- */
+.action-hub {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.action-btn:hover {
+  color: var(--text-main);
+  transform: translateY(-1px);
+}
+
+/* Dynamic Cart Badge */
+.cart-btn {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  background-color: var(--text-main);
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive Menu Trigger (Hidden on Desktop) */
+.mobile-menu-btn {
+  display: none;
+}
+
+/* --- Expandable Search Panel --- */
+.search-overlay-bar {
+  background-color: #f8fafc;
+  border-bottom: 1px solid var(--border-color);
+  width: 100%;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition:
+    max-height 0.3s ease-in-out,
+    opacity 0.2s ease,
+    visibility 0.3s;
+  position: relative;
+  z-index: 5;
+}
+
+/* Activated State via JS */
+.search-overlay-bar.active {
+  max-height: 72px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.search-container {
+  max-w: 768px;
+  margin: 0 auto;
+  height: 72px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-input-icon {
+  color: var(--text-muted);
+  font-size: 16px;
+  position: absolute;
+  left: 36px;
+}
+
+#search-input {
+  width: 100%;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 14px 44px 14px 48px;
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-main);
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+#search-input:focus {
+  border-color: var(--text-main);
+  box-shadow: 0 0 0 1px var(--text-main);
+  background-color: #ffffff;
+}
+
+.search-close-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: var(--text-muted);
+  cursor: pointer;
+  position: absolute;
+  right: 36px;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.search-close-btn:hover {
+  color: var(--text-main);
+  transform: rotate(90deg);
+}
+
+/* --- Mobile Navigation Drawer --- */
+.mobile-drawer {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition:
+    max-height 0.3s ease-in-out,
+    opacity 0.2s ease;
+  z-index: 4;
+}
+
+.mobile-drawer.active {
+  max-height: 400px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav ul {
+  list-style: none;
+  padding: 16px 24px;
+}
+
+.mobile-nav li a {
+  display: block;
+  text-decoration: none;
+  color: var(--text-main);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 0;
+  transition: var(--transition-smooth);
+}
+
+.mobile-nav li.divider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 8px 0;
+}
+
+/* --- Responsive Media Queries --- */
+@media (max-width: 900px) {
+  .main-nav {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .header-container {
+    padding: 0 20px;
+    height: 70px;
+  }
+
+  .action-btn[aria-label="Favorites"],
+  .action-btn[aria-label="Account"] {
+    display: none;
+  }
 }
