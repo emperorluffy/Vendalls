@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
     <link
@@ -17,22 +17,105 @@
     />
   </head>
   <body>
-    <header class="site-header">
-      <div class="announcement-bar">Delivered at your doorstep .</div>
+    <div class="container">
+      <header class="site-header">
+        <div class="announcement-bar">Delivered at your doorstep .</div>
 
-      <div class="header-main">
-        <div class="header-container">
-          <div class="logo">
-            <a href="#">VENDALLS<span class="dot">.</span></a>
+        <div class="header-main">
+          <div class="header-container">
+            <div class="logo">
+              <a href="#">VENDALLS<span class="dot">.</span></a>
+            </div>
+
+            <nav class="main-nav">
+              <ul>
+                <li class="dropdown">
+                  <a href="#laptops" class="nav-link"
+                    >Laptops <i class="fa-solid fa-chevron-down"></i
+                  ></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#gaming-laptops">Gaming Laptops</a></li>
+                    <li><a href="#ultrabooks">Ultrabooks & Slim</a></li>
+                    <li><a href="#business-laptops">Business Laptops</a></li>
+                    <li><a href="#macbooks">MacBooks</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#phones" class="nav-link"
+                    >Phones <i class="fa-solid fa-chevron-down"></i
+                  ></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#iphones">iPhones</a></li>
+                    <li><a href="#android-phones">Android Phones</a></li>
+                    <li><a href="#foldables">Foldables</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#accessories" class="nav-link"
+                    >Accessories <i class="fa-solid fa-chevron-down"></i
+                  ></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#audio">Headphones & Audio</a></li>
+                    <li><a href="#chargers">Chargers & Cables</a></li>
+                    <li><a href="#cases">Cases & Protection</a></li>
+                    <li><a href="#monitors">Monitors</a></li>
+                  </ul>
+                </li>
+                <li><a href="#support" class="nav-link">Support</a></li>
+              </ul>
+            </nav>
+
+            <div class="action-hub">
+              <button
+                class="action-btn"
+                id="search-trigger"
+                aria-label="Search"
+              >
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+              <button class="action-btn cart-btn" aria-label="Shopping Cart">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-badge">0</span>
+              </button>
+              <button
+                class="action-btn mobile-menu-btn"
+                id="mobile-toggle"
+                aria-label="Toggle Menu"
+              >
+                <i class="fa-solid fa-bars"></i>
+              </button>
+            </div>
           </div>
+        </div>
 
-          <nav class="main-nav">
+        <!-- Expandable Search Overlay -->
+        <div class="search-overlay-bar" id="search-panel">
+          <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass search-input-icon"></i>
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search for Laptops, Phones, Ecosystem accessories..."
+              autocomplete="off"
+            />
+            <button
+              class="search-close-btn"
+              id="search-close"
+              aria-label="Close Search"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Refactored Mobile Navigation Drawer -->
+        <div class="mobile-drawer" id="mobile-drawer">
+          <nav class="mobile-nav">
             <ul>
-              <!-- Laptops Dropdown -->
               <li class="dropdown">
-                <a href="#laptops" class="nav-link">
-                  Laptops <i class="fa-solid fa-chevron-down"></i>
-                </a>
+                <a href="#laptops"
+                  >Laptops <i class="fa-solid fa-chevron-down"></i
+                ></a>
                 <ul class="dropdown-menu">
                   <li><a href="#gaming-laptops">Gaming Laptops</a></li>
                   <li><a href="#ultrabooks">Ultrabooks & Slim</a></li>
@@ -40,24 +123,20 @@
                   <li><a href="#macbooks">MacBooks</a></li>
                 </ul>
               </li>
-
-              <!-- Phones Dropdown -->
               <li class="dropdown">
-                <a href="#phones" class="nav-link">
-                  Phones <i class="fa-solid fa-chevron-down"></i>
-                </a>
+                <a href="#phones"
+                  >Phones <i class="fa-solid fa-chevron-down"></i
+                ></a>
                 <ul class="dropdown-menu">
                   <li><a href="#iphones">iPhones</a></li>
                   <li><a href="#android-phones">Android Phones</a></li>
                   <li><a href="#foldables">Foldables</a></li>
                 </ul>
               </li>
-
-              <!-- Accessories Dropdown -->
               <li class="dropdown">
-                <a href="#accessories" class="nav-link">
-                  Accessories <i class="fa-solid fa-chevron-down"></i>
-                </a>
+                <a href="#accessories"
+                  >Accessories <i class="fa-solid fa-chevron-down"></i
+                ></a>
                 <ul class="dropdown-menu">
                   <li><a href="#audio">Headphones & Audio</a></li>
                   <li><a href="#chargers">Chargers & Cables</a></li>
@@ -65,115 +144,129 @@
                   <li><a href="#monitors">Monitors</a></li>
                 </ul>
               </li>
-
-              <!-- Support Link (No dropdown) -->
-              <li><a href="#support" class="nav-link">Support</a></li>
+              <li><a href="#support">Support</a></li>
+              <li class="divider"></li>
+              <li>
+                <a href="#favorites"
+                  ><i class="fa-regular fa-heart"></i> Saved Items</a
+                >
+              </li>
             </ul>
           </nav>
+        </div>
+      </header>
 
-          <div class="action-hub">
-            <button class="action-btn" id="search-trigger" aria-label="Search">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-
-            <button class="action-btn cart-btn" aria-label="Shopping Cart">
-              <i class="fa-solid fa-bag-shopping"></i>
-              <span class="cart-badge">0</span>
-            </button>
-            <button
-              class="action-btn mobile-menu-btn"
-              id="mobile-toggle"
-              aria-label="Toggle Menu"
-            >
-              <i class="fa-solid fa-bars"></i>
-            </button>
+      <section class="deal-of-the-day">
+        <div class="deal-image-container">
+          <div class="slider-wrapper">
+            <button class="slider-arrow prev-btn">&#10094;</button>
+            <div class="slider-slides">
+              <img
+                src="img/vendalls 4.webp"
+                alt="Featured Laptop 1"
+                class="deal-image active"
+              />
+              <img
+                src="img/vendalls 5.webp"
+                alt="Featured Laptop 2"
+                class="deal-image"
+              />
+              <img
+                src="img/Vendalls 6.webp"
+                alt="Featured Laptop 3"
+                class="deal-image"
+              />
+            </div>
+            <button class="slider-arrow next-btn">&#10095;</button>
           </div>
         </div>
-      </div>
 
-      <div class="search-overlay-bar" id="search-panel">
-        <div class="search-container">
-          <i class="fa-solid fa-magnifying-glass search-input-icon"></i>
-          <input
-            type="text"
-            id="search-input"
-            placeholder="Search for Laptops, Phones, Ecosystem accessories..."
-            autocomplete="off"
-          />
-          <button
-            class="search-close-btn"
-            id="search-close"
-            aria-label="Close Search"
-          >
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-        </div>
-      </div>
-
-      <div class="mobile-drawer" id="mobile-drawer">
-        <nav class="mobile-nav">
-          <ul>
-            <li><a href="#laptops">Laptops</a></li>
-            <li><a href="#phones">Phones</a></li>
-            <li><a href="#Accessories">Accessories</a></li>
-            <li><a href="#support">Support</a></li>
-            <li class="divider"></li>
-
-            <li>
-              <a href="#favorites"
-                ><i class="fa-regular fa-heart"></i> Saved Items</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <section class="deal-of-the-day">
-      <!-- Left Side: Product Image -->
-      <div class="deal-image-container">
-        <div class="slider-wrapper">
-          <!-- Navigation Buttons -->
-          <button class="slider-arrow prev-btn">&#10094;</button>
-
-          <!-- Images (Add as many as you want; only one active at a time) -->
-          <div class="slider-slides">
-            <img
-              src="img/vendalls 4.webp"
-              alt="Featured Laptop 1"
-              class="deal-image active"
-            />
-            <img
-              src="img/vendalls 5.webp"
-              alt="Featured Laptop 2"
-              class="deal-image"
-            />
-            <img
-              src="img/Vendalls 6.webp"
-              alt="Featured Laptop 3"
-              class="deal-image"
-            />
+        <div class="deal-info-container">
+          <span class="deal-tag">Deal of the Day</span>
+          <h2 class="deal-title">Premium Ultra-Slim Laptop</h2>
+          <p class="deal-description">
+            Experience lightning-fast performance with the latest processor,
+            stunning 4K display, and an all-day battery life. Perfect for
+            creators and professionals alike.
+          </p>
+          <div class="deal-price-section">
+            <span class="current-price">899.99 ZMW.</span>
+            <span class="original-price">1,199.99 ZMW.</span>
           </div>
+          <button class="deal-btn">Shop Now</button>
+        </div>
+      </section>
 
-          <button class="slider-arrow next-btn">&#10095;</button>
+      <!-- New Laptop Types Grid Section -->
+      <section class="laptop-showcase-section">
+        <div class="showcase-container">
+          <!-- Left Sidebar: Laptop Types (Green Section) -->
+          <aside class="laptop-types-sidebar">
+            <h3 class="sidebar-title">Laptop Types</h3>
+            <ul class="type-list">
+              <li class="active">
+                <a href="#gaming-laptops"
+                  >Gaming Laptops <span class="count">(12)</span></a
+                >
+              </li>
+              <li>
+                <a href="#ultrabooks"
+                  >Ultrabooks & Slim <span class="count">(8)</span></a
+                >
+              </li>
+              <li>
+                <a href="#business-laptops"
+                  >Business Laptops <span class="count">(15)</span></a
+                >
+              </li>
+              <li>
+                <a href="#macbooks">MacBooks <span class="count">(6)</span></a>
+              </li>
+            </ul>
+          </aside>
+
+          <!-- Right Area: Product Images Grid Layout (Brown Section) -->
+          <main class="images-grid-display">
+            <div class="grid-card">
+              <div class="image-wrapper">
+                <img src="img/vendalls 4.webp" alt="Gaming Model" />
+              </div>
+              <div class="card-meta">
+                <h4>Razer Blade Pro</h4>
+                <span>From 1,200 ZMW</span>
+              </div>
+            </div>
+            <div class="grid-card">
+              <div class="image-wrapper">
+                <img src="img/vendalls 5.webp" alt="Slim Model" />
+              </div>
+              <div class="card-meta">
+                <h4>Dell XPS 13 Ultra</h4>
+                <span>From 950 ZMW</span>
+              </div>
+            </div>
+            <div class="grid-card">
+              <div class="image-wrapper">
+                <img src="img/Vendalls 6.webp" alt="Workstation Model" />
+              </div>
+              <div class="card-meta">
+                <h4>ThinkPad X1 Carbon</h4>
+                <span>From 1,100 ZMW</span>
+              </div>
+            </div>
+            <div class="grid-card">
+              <div class="image-wrapper">
+                <img src="img/vendalls 5.webp" alt="Slim Model" />
+              </div>
+              <div class="card-meta">
+                <h4>Dell XPS 13 Ultra</h4>
+                <span>From 950 ZMW</span>
+              </div>
+            </div>
+          </main>
         </div>
-      </div>
-      <!-- Right Side: Styled Description -->
-      <div class="deal-info-container">
-        <span class="deal-tag">Deal of the Day</span>
-        <h2 class="deal-title">Premium Ultra-Slim Laptop</h2>
-        <p class="deal-description">
-          Experience lightning-fast performance with the latest processor,
-          stunning 4K display, and an all-day battery life. Perfect for creators
-          and professionals alike.
-        </p>
-        <div class="deal-price-section">
-          <span class="current-price">899.99 ZMW.</span>
-          <span class="original-price">1,199.99 ZMW.</span>
-        </div>
-        <button class="deal-btn">Shop Now</button>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <script src="script.js"></script>
   </body>

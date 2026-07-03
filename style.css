@@ -3,7 +3,7 @@
   --bg-primary: #ffffff;
   --text-main: #0f0f10;
   --text-muted: #64748b;
-  --accent-color: #d97706; /* Elegant amber accent */
+  --accent-color: #d97706;
   --border-color: #f1f5f9;
   --font-family: "Inter", sans-serif;
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -31,7 +31,6 @@ body {
   box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
 }
 
-/* --- Top Announcement Bar --- */
 .announcement-bar {
   background-color: var(--text-main);
   color: #ffffff;
@@ -43,7 +42,6 @@ body {
   text-transform: uppercase;
 }
 
-/* --- Main Header Navigation --- */
 .header-main {
   background-color: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
@@ -52,8 +50,8 @@ body {
 }
 
 .header-container {
-  max-w: 1280px;
-  height: 80px; /* Spacious luxury padding */
+  max-width: 1280px;
+  height: 80px;
   margin: 0 auto;
   padding: 0 32px;
   display: flex;
@@ -61,92 +59,27 @@ body {
   justify-content: space-between;
 }
 
-/* --- Brand Typography --- */
 .logo a {
   font-size: 24px;
   font-weight: 900;
   letter-spacing: 0.25em;
   text-decoration: none;
   color: var(--text-main);
-  transition: var(--transition-smooth);
 }
 
 .logo .dot {
   color: var(--accent-color);
 }
 
-/* --- Navigation Links --- */
-/* Ensure the top-level list elements are the reference anchors */
+/* --- Desktop Navigation & Dropdowns --- */
 .main-nav > ul {
   display: flex;
   list-style: none;
-  gap: 25px; /* Adjust gap to match your layout spacing */
-  margin: 0;
-  padding: 0;
+  gap: 25px;
 }
 
 .main-nav .dropdown {
-  position: relative; /* Keeps the nested menu attached to this specific item */
-}
-
-/* Base style for the chevron icon spacing */
-.main-nav .nav-link i {
-  font-size: 0.75rem;
-  margin-left: 4px;
-  transition: transform 0.2s ease;
-}
-
-/* Subtle micro-interaction: rotate chevron arrow up on hover */
-.main-nav .dropdown:hover .nav-link i {
-  transform: rotate(180deg);
-}
-
-/* The Hidden Dropdown Menu Box */
-.dropdown-menu {
-  position: absolute;
-  top: 100%; /* Positions it directly under the parent link */
-  left: 50%;
-  transform: translateX(-50%) translateY(10px); /* Centers it and gives it an offset for animation */
-  background-color: #ffffff;
-  min-width: 180px;
-  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.12); /* Clean modern shadow */
-  border-radius: 6px;
-  list-style: none;
-  padding: 10px 0;
-  margin: 0;
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease,
-    visibility 0.2s;
-  z-index: 100; /* Makes sure it floats on top of the product display area */
-}
-
-/* Show Menu on Hover */
-.dropdown:hover .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0); /* Slides up smoothly into place */
-}
-
-/* Individual Links inside the Dropdown */
-.dropdown-menu li a {
-  display: block;
-  padding: 10px 20px;
-  color: #333333;
-  text-decoration: none;
-  font-size: 0.9rem;
-  white-space: nowrap; /* Prevents text breaking onto multiple lines */
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
-}
-
-/* Link Hover States */
-.dropdown-menu li a:hover {
-  background-color: #f4f6f7; /* Soft gray highlight */
-  color: #e67e22; /* Matches your accent colors */
+  position: relative;
 }
 
 .nav-link {
@@ -166,17 +99,60 @@ body {
   color: var(--text-main);
 }
 
-.nav-link .arrow {
-  font-size: 10px;
-  transition: var(--transition-smooth);
+.main-nav .nav-link i {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
 }
 
-.nav-link:hover .arrow {
-  transform: translateY(2px);
-  color: var(--text-main);
+.main-nav .dropdown:hover .nav-link i {
+  transform: rotate(180deg);
 }
 
-/* --- Action Hub & Buttons --- */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: #ffffff;
+  min-width: 180px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s;
+  z-index: 100;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 20px;
+  color: #333333;
+  text-decoration: none;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f4f6f7;
+  color: var(--accent-color);
+}
+
+/* --- Action Hub --- */
 .action-hub {
   display: flex;
   align-items: center;
@@ -201,7 +177,6 @@ body {
   transform: translateY(-1px);
 }
 
-/* Dynamic Cart Badge */
 .cart-btn {
   position: relative;
 }
@@ -222,7 +197,6 @@ body {
   justify-content: center;
 }
 
-/* Responsive Menu Trigger (Hidden on Desktop) */
 .mobile-menu-btn {
   display: none;
 }
@@ -244,7 +218,6 @@ body {
   z-index: 5;
 }
 
-/* Activated State via JS */
 .search-overlay-bar.active {
   max-height: 72px;
   opacity: 1;
@@ -252,7 +225,7 @@ body {
 }
 
 .search-container {
-  max-w: 768px;
+  max-width: 768px;
   margin: 0 auto;
   height: 72px;
   padding: 0 20px;
@@ -276,8 +249,6 @@ body {
   padding: 14px 44px 14px 48px;
   font-family: var(--font-family);
   font-size: 14px;
-  font-weight: 400;
-  color: var(--text-main);
   outline: none;
   transition: var(--transition-smooth);
 }
@@ -285,7 +256,6 @@ body {
 #search-input:focus {
   border-color: var(--text-main);
   box-shadow: 0 0 0 1px var(--text-main);
-  background-color: #ffffff;
 }
 
 .search-close-btn {
@@ -296,10 +266,8 @@ body {
   cursor: pointer;
   position: absolute;
   right: 36px;
-  padding: 6px;
   display: flex;
   align-items: center;
-  justify-content: center;
   transition: var(--transition-smooth);
 }
 
@@ -308,7 +276,7 @@ body {
   transform: rotate(90deg);
 }
 
-/* --- Mobile Navigation Drawer --- */
+/* --- Mobile Navigation Drawer System --- */
 .mobile-drawer {
   position: absolute;
   top: 100%;
@@ -318,7 +286,7 @@ body {
   border-bottom: 1px solid var(--border-color);
   max-height: 0;
   opacity: 0;
-  overflow: hidden;
+  overflow-y: auto;
   visibility: hidden;
   transition:
     max-height 0.3s ease-in-out,
@@ -327,7 +295,7 @@ body {
 }
 
 .mobile-drawer.active {
-  max-height: 400px;
+  max-height: 100vh;
   opacity: 1;
   visibility: visible;
 }
@@ -338,7 +306,9 @@ body {
 }
 
 .mobile-nav li a {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-decoration: none;
   color: var(--text-main);
   font-size: 16px;
@@ -347,37 +317,68 @@ body {
   transition: var(--transition-smooth);
 }
 
+.mobile-nav li.dropdown i {
+  font-size: 0.85rem;
+  transition: transform 0.3s ease;
+}
+
+/* Hide desktop styles for accordion inside the mobile menu block */
+.mobile-nav .dropdown-menu {
+  position: relative;
+  top: 0;
+  left: 0;
+  transform: none;
+  box-shadow: none;
+  width: 100%;
+  padding-left: 16px;
+  border-left: 2px solid var(--border-color);
+  background-color: rgba(0, 0, 0, 0.01);
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition:
+    max-height 0.3s ease-in-out,
+    opacity 0.2s ease,
+    visibility 0.3s ease;
+}
+
+/* Active mobile toggle selectors */
+.mobile-nav li.dropdown.mobile-open .dropdown-menu {
+  max-height: 400px;
+  opacity: 1 !important;
+  visibility: visible !important;
+  overflow: visible;
+  padding: 4px 0 8px 16px;
+  transform: none !important;
+}
+
+.mobile-nav li.dropdown.mobile-open > a i {
+  transform: rotate(180deg);
+}
+
+/* Force mobile dropdown links to render safely and override desktop rules */
+.mobile-nav .dropdown-menu li a {
+  display: block !important;
+  width: 100%;
+  font-size: 14px;
+  color: var(--text-muted);
+  padding: 10px 0;
+  white-space: normal;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 .mobile-nav li.divider {
   height: 1px;
   background-color: var(--border-color);
   margin: 8px 0;
 }
 
-/* --- Responsive Media Queries --- */
-@media (max-width: 900px) {
-  .main-nav {
-    display: none;
-  }
-
-  .mobile-menu-btn {
-    display: flex;
-  }
-
-  .header-container {
-    padding: 0 20px;
-    height: 70px;
-  }
-
-  .action-btn[aria-label="Favorites"],
-  .action-btn[aria-label="Account"] {
-    display: none;
-  }
-}
-
-/* Container Layout - Now Reversed */
+/* --- Product Presentation Area --- */
 .deal-of-the-day {
   display: flex;
-  flex-direction: row-reverse; /* Flips the children: Description Left, Image Right */
+  flex-direction: row-reverse;
   align-items: center;
   justify-content: space-between;
   padding: 40px 10%;
@@ -386,8 +387,6 @@ body {
   gap: 40px;
 }
 
-/* Right Side: Image Styling */
-/* Update your existing container styles */
 .deal-image-container {
   flex: 1;
   display: flex;
@@ -395,17 +394,15 @@ body {
   align-items: center;
 }
 
-/* Slider Wrapper to position navigation elements relatively */
 .slider-wrapper {
   position: relative;
   width: 100%;
-  max-width: 500px; /* Keeps the frame restrained neatly */
+  max-width: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Container keeping all stacked images together */
 .slider-slides {
   width: 100%;
   display: flex;
@@ -413,27 +410,24 @@ body {
   align-items: center;
 }
 
-/* Modified deal-image logic to support fading slides */
 .deal-image {
   max-width: 100%;
   height: 30rem;
   object-fit: contain;
   filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
-  display: none; /* Hide images by default */
+  display: none;
 }
 
-/* Active class applied via JS to show the current slide */
 .deal-image.active {
   display: block;
   animation: fadeEffect 0.4s ease-in-out;
 }
 
-/* Sleek UI Navigation Arrows */
 .slider-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(44, 62, 80, 0.7); /* Translucent dark palette */
+  background-color: rgba(44, 62, 80, 0.7);
   color: #ffffff;
   border: none;
   font-size: 1.5rem;
@@ -441,14 +435,12 @@ body {
   cursor: pointer;
   border-radius: 50%;
   z-index: 10;
-  transition:
-    background-color 0.2s ease,
-    scale 0.1s ease;
+  transition: var(--transition-smooth);
 }
 
 .slider-arrow:hover {
   background-color: rgba(44, 62, 80, 0.95);
-  scale: 1.05;
+  transform: translateY(-50%) scale(1.05);
 }
 
 .prev-btn {
@@ -458,7 +450,6 @@ body {
   right: -10px;
 }
 
-/* Micro-interaction animation when switching images */
 @keyframes fadeEffect {
   from {
     opacity: 0.4;
@@ -468,7 +459,6 @@ body {
   }
 }
 
-/* Left Side: Description Styling */
 .deal-info-container {
   flex: 1;
   display: flex;
@@ -499,7 +489,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* Price Formatting */
 .deal-price-section {
   display: flex;
   align-items: center;
@@ -519,7 +508,6 @@ body {
   text-decoration: line-through;
 }
 
-/* Call to Action Button */
 .deal-btn {
   align-self: flex-start;
   padding: 12px 28px;
@@ -537,17 +525,176 @@ body {
   background-color: #34495e;
 }
 
-/* Responsive design for tablets/phones */
-@media (max-width: 768px) {
+/* --- Consolidated Responsive Media Queries --- */
+@media (max-width: 900px) {
+  .main-nav {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .header-container {
+    padding: 0 20px;
+    height: 70px;
+  }
+
   .deal-of-the-day {
-    /* Changes from row-reverse to column-reverse so the image 
-       still appears on TOP of the text when stacked on mobile */
     flex-direction: column-reverse;
     text-align: center;
     padding: 30px 20px;
+    gap: 20px;
   }
 
   .deal-btn {
     align-self: center;
+  }
+}
+
+.container {
+  padding: 2px 1px;
+}
+
+/* --- Laptop Categories Grid Showcase --- */
+.laptop-showcase-section {
+  background-color: #ffffff;
+  /* Matches the exact horizontal spacing and padding of your hero banner */
+  padding: 60px 10%;
+  border-top: 1px solid var(--border-color);
+  width: 100%;
+}
+
+.showcase-container {
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  /* Expands across the entire available container display path fluidly */
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+}
+
+/* Left Sidebar (Green Column concept) */
+.laptop-types-sidebar {
+  border-right: 1px solid var(--border-color);
+  padding-right: 20px;
+}
+
+.sidebar-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.type-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.type-list li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 12px 16px;
+  border-radius: 6px;
+  transition: var(--transition-smooth);
+}
+
+.type-list li a:hover,
+.type-list li.active a {
+  background-color: #f8fafc;
+  color: var(--accent-color);
+}
+
+.type-list .count {
+  font-size: 12px;
+  color: #94a3b8;
+  background-color: #f1f5f9;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+/* Right Content Grid Layout (Brown Column concept) */
+.images-grid-display {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(260px, 1fr)
+  ); /* Adaptive responsive grid cards */
+  gap: 24px;
+}
+
+.grid-card {
+  background-color: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.grid-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.04);
+}
+
+.image-wrapper {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.image-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.card-meta {
+  padding: 16px;
+  background-color: #f8fafc;
+}
+
+.card-meta h4 {
+  font-size: 15px;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.card-meta span {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* --- Mobile Responsiveness overrides for the grid --- */
+@media (max-width: 900px) {
+  .showcase-container {
+    grid-template-columns: 1fr; /* Stack layout vertically on tablet and mobile screens */
+    gap: 30px;
+  }
+
+  .laptop-types-sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
+
+  .type-list {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    white-space: nowrap;
   }
 }
