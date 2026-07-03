@@ -76,10 +76,77 @@ body {
 }
 
 /* --- Navigation Links --- */
-.main-nav ul {
+/* Ensure the top-level list elements are the reference anchors */
+.main-nav > ul {
   display: flex;
   list-style: none;
-  gap: 40px;
+  gap: 25px; /* Adjust gap to match your layout spacing */
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav .dropdown {
+  position: relative; /* Keeps the nested menu attached to this specific item */
+}
+
+/* Base style for the chevron icon spacing */
+.main-nav .nav-link i {
+  font-size: 0.75rem;
+  margin-left: 4px;
+  transition: transform 0.2s ease;
+}
+
+/* Subtle micro-interaction: rotate chevron arrow up on hover */
+.main-nav .dropdown:hover .nav-link i {
+  transform: rotate(180deg);
+}
+
+/* The Hidden Dropdown Menu Box */
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Positions it directly under the parent link */
+  left: 50%;
+  transform: translateX(-50%) translateY(10px); /* Centers it and gives it an offset for animation */
+  background-color: #ffffff;
+  min-width: 180px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.12); /* Clean modern shadow */
+  border-radius: 6px;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s;
+  z-index: 100; /* Makes sure it floats on top of the product display area */
+}
+
+/* Show Menu on Hover */
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0); /* Slides up smoothly into place */
+}
+
+/* Individual Links inside the Dropdown */
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 20px;
+  color: #333333;
+  text-decoration: none;
+  font-size: 0.9rem;
+  white-space: nowrap; /* Prevents text breaking onto multiple lines */
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Link Hover States */
+.dropdown-menu li a:hover {
+  background-color: #f4f6f7; /* Soft gray highlight */
+  color: #e67e22; /* Matches your accent colors */
 }
 
 .nav-link {
@@ -307,200 +374,180 @@ body {
   }
 }
 
-/* --- Premium Hero Section --- */
-.hero-section {
-  background-color: #ffffff;
-  padding: 80px 0;
-  overflow: hidden;
-}
-
-.hero-container {
-  max-w: 1280px;
-  margin: 0 auto;
-  padding: 0 32px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+/* Container Layout - Now Reversed */
+.deal-of-the-day {
+  display: flex;
+  flex-direction: row-reverse; /* Flips the children: Description Left, Image Right */
   align-items: center;
+  justify-content: space-between;
+  padding: 40px 10%;
+  background-color: #f9f9f9;
+  min-height: 400px;
+  gap: 40px;
 }
 
-/* Left Column Content Layout */
-.hero-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.hero-tagline {
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--accent-color);
-  margin-bottom: 16px;
-}
-
-.hero-title {
-  font-size: 56px;
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: var(--text-main);
-  margin-bottom: 24px;
-}
-
-.hero-description {
-  font-size: 18px;
-  line-height: 1.6;
-  color: var(--text-muted);
-  font-weight: 400;
-  margin-bottom: 40px;
-  max-width: 520px;
-}
-
-/* Call-to-Action Component Elements */
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 64px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 16px 32px;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: var(--transition-smooth);
-}
-
-.btn-primary {
-  background-color: var(--text-main);
-  color: #ffffff;
-}
-
-.btn-primary:hover {
-  background-color: #27272a;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-}
-
-.btn-secondary {
-  background-color: transparent;
-  color: var(--text-main);
-  border: 1px solid #e2e8f0;
-}
-
-.btn-secondary:hover {
-  background-color: #fafafa;
-  border-color: var(--text-main);
-  transform: translateY(-2px);
-}
-
-.btn-secondary i {
-  font-size: 10px;
-}
-
-/* Trust Spec Badges */
-.hero-specs {
-  display: flex;
-  gap: 48px;
-  border-top: 1px solid var(--border-color);
-  padding-top: 32px;
-}
-
-.spec-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.spec-value {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--text-main);
-}
-
-.spec-label {
-  font-size: 12px;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-top: 4px;
-}
-
-/* Right Column Image Frame Placement */
-.hero-visual {
-  width: 100%;
+/* Right Side: Image Styling */
+/* Update your existing container styles */
+.deal-image-container {
+  flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.image-frame {
-  width: 100%;
-  max-width: 560px;
-  height: 520px;
-  background-color: #f8fafc; /* Sleek canvas for hardware visualization */
-  border-radius: 16px;
-  border: 1px solid var(--border-color);
+/* Slider Wrapper to position navigation elements relatively */
+.slider-wrapper {
   position: relative;
+  width: 100%;
+  max-width: 500px; /* Keeps the frame restrained neatly */
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
-/* Marked element ready for your graphic swap */
-.placeholder-overlay {
-  position: absolute;
-  font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
-  background: rgba(255, 255, 255, 0.9);
-  padding: 10px 20px;
-  border-radius: 30px;
-  border: 1px dashed #cbd5e1;
-  z-index: 2;
-}
-
-.hero-img-placeholder {
+/* Container keeping all stacked images together */
+.slider-slides {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.15; /* Subdued baseline visibility until you drop your file in */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* --- Responsive Layout for Mobile Devices --- */
-@media (max-width: 900px) {
-  .hero-section {
-    padding: 48px 0;
+/* Modified deal-image logic to support fading slides */
+.deal-image {
+  max-width: 100%;
+  height: 30rem;
+  object-fit: contain;
+  filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
+  display: none; /* Hide images by default */
+}
+
+/* Active class applied via JS to show the current slide */
+.deal-image.active {
+  display: block;
+  animation: fadeEffect 0.4s ease-in-out;
+}
+
+/* Sleek UI Navigation Arrows */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(44, 62, 80, 0.7); /* Translucent dark palette */
+  color: #ffffff;
+  border: none;
+  font-size: 1.5rem;
+  padding: 12px 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  transition:
+    background-color 0.2s ease,
+    scale 0.1s ease;
+}
+
+.slider-arrow:hover {
+  background-color: rgba(44, 62, 80, 0.95);
+  scale: 1.05;
+}
+
+.prev-btn {
+  left: -10px;
+}
+.next-btn {
+  right: -10px;
+}
+
+/* Micro-interaction animation when switching images */
+@keyframes fadeEffect {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Left Side: Description Styling */
+.deal-info-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.deal-tag {
+  color: #e67e22;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.deal-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin: 0 0 15px 0;
+  font-weight: 700;
+}
+
+.deal-description {
+  font-size: 1rem;
+  color: #7f8c8d;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Price Formatting */
+.deal-price-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.current-price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #27ae60;
+}
+
+.original-price {
+  font-size: 1.2rem;
+  color: #bdc3c7;
+  text-decoration: line-through;
+}
+
+/* Call to Action Button */
+.deal-btn {
+  align-self: flex-start;
+  padding: 12px 28px;
+  background-color: #2c3e50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.deal-btn:hover {
+  background-color: #34495e;
+}
+
+/* Responsive design for tablets/phones */
+@media (max-width: 768px) {
+  .deal-of-the-day {
+    /* Changes from row-reverse to column-reverse so the image 
+       still appears on TOP of the text when stacked on mobile */
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 30px 20px;
   }
 
-  .hero-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 0 20px;
-  }
-
-  .hero-title {
-    font-size: 38px;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 40px;
-  }
-
-  .btn {
-    justify-content: center;
-    width: 100%;
-  }
-
-  .image-frame {
-    height: 380px;
+  .deal-btn {
+    align-self: center;
   }
 }

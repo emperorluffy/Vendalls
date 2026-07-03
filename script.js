@@ -49,3 +49,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll(".slider-slides .deal-image");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
+  let currentSlideIndex = 0;
+
+  function showSlide(index) {
+    // Remove the active visibility state from the previous image
+    slides[currentSlideIndex].classList.remove("active");
+
+    // Bounds tracking loops around cleanly
+    if (index >= slides.length) {
+      currentSlideIndex = 0;
+    } else if (index < 0) {
+      currentSlideIndex = slides.length - 1;
+    } else {
+      currentSlideIndex = index;
+    }
+
+    // Mount visibility onto the new target image
+    slides[currentSlideIndex].classList.add("active");
+  }
+
+  // Click Handlers
+  nextBtn.addEventListener("click", () => showSlide(currentSlideIndex + 1));
+  prevBtn.addEventListener("click", () => showSlide(currentSlideIndex - 1));
+});

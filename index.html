@@ -28,15 +28,45 @@
 
           <nav class="main-nav">
             <ul>
+              <!-- Laptops Dropdown -->
               <li class="dropdown">
-                <a href="#laptops" class="nav-link"
-                  >Laptops <i class="fa-solid fa-chevron-down arrow"></i
-                ></a>
+                <a href="#laptops" class="nav-link">
+                  Laptops <i class="fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#gaming-laptops">Gaming Laptops</a></li>
+                  <li><a href="#ultrabooks">Ultrabooks & Slim</a></li>
+                  <li><a href="#business-laptops">Business Laptops</a></li>
+                  <li><a href="#macbooks">MacBooks</a></li>
+                </ul>
               </li>
-              <li><a href="#phones" class="nav-link">Phones</a></li>
-              <li>
-                <a href="#accessories" class="nav-link">Accessories</a>
+
+              <!-- Phones Dropdown -->
+              <li class="dropdown">
+                <a href="#phones" class="nav-link">
+                  Phones <i class="fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#iphones">iPhones</a></li>
+                  <li><a href="#android-phones">Android Phones</a></li>
+                  <li><a href="#foldables">Foldables</a></li>
+                </ul>
               </li>
+
+              <!-- Accessories Dropdown -->
+              <li class="dropdown">
+                <a href="#accessories" class="nav-link">
+                  Accessories <i class="fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#audio">Headphones & Audio</a></li>
+                  <li><a href="#chargers">Chargers & Cables</a></li>
+                  <li><a href="#cases">Cases & Protection</a></li>
+                  <li><a href="#monitors">Monitors</a></li>
+                </ul>
+              </li>
+
+              <!-- Support Link (No dropdown) -->
               <li><a href="#support" class="nav-link">Support</a></li>
             </ul>
           </nav>
@@ -99,48 +129,51 @@
       </div>
     </header>
 
-    <main class="hero-section">
-      <div class="hero-container">
-        <div class="hero-content">
-          <span class="hero-tagline">The Pro Ecosystem</span>
-          <h1 class="hero-title">Titanium inside.<br />Brilliant outside.</h1>
-          <p class="hero-description">
-            Experience the next generation of professional hardware. Engineered
-            with ultra-thin computing architecture and surgical-grade finishes,
-            custom-built for absolute performance.
-          </p>
+    <section class="deal-of-the-day">
+      <!-- Left Side: Product Image -->
+      <div class="deal-image-container">
+        <div class="slider-wrapper">
+          <!-- Navigation Buttons -->
+          <button class="slider-arrow prev-btn">&#10094;</button>
 
-          <div class="hero-actions">
-            <a href="#shop" class="btn btn-primary">Explore Pro Lineup</a>
-            <a href="#configure" class="btn btn-secondary"
-              >Configure Yours <i class="fa-solid fa-chevron-right"></i
-            ></a>
-          </div>
-
-          <div class="hero-specs">
-            <div class="spec-item">
-              <span class="spec-value">Up to 24h</span>
-              <span class="spec-label">Battery Architecture</span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-value">3nm</span>
-              <span class="spec-label">Silicon Engineering</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="image-frame">
-            <div class="placeholder-overlay">Image one</div>
+          <!-- Images (Add as many as you want; only one active at a time) -->
+          <div class="slider-slides">
             <img
-              src="path-to-your-image.jpg"
-              alt="Vendalls Premium Showcase"
-              class="hero-img-placeholder"
+              src="img/vendalls 4.webp"
+              alt="Featured Laptop 1"
+              class="deal-image active"
+            />
+            <img
+              src="img/vendalls 5.webp"
+              alt="Featured Laptop 2"
+              class="deal-image"
+            />
+            <img
+              src="img/Vendalls 6.webp"
+              alt="Featured Laptop 3"
+              class="deal-image"
             />
           </div>
+
+          <button class="slider-arrow next-btn">&#10095;</button>
         </div>
       </div>
-    </main>
+      <!-- Right Side: Styled Description -->
+      <div class="deal-info-container">
+        <span class="deal-tag">Deal of the Day</span>
+        <h2 class="deal-title">Premium Ultra-Slim Laptop</h2>
+        <p class="deal-description">
+          Experience lightning-fast performance with the latest processor,
+          stunning 4K display, and an all-day battery life. Perfect for creators
+          and professionals alike.
+        </p>
+        <div class="deal-price-section">
+          <span class="current-price">899.99 ZMW.</span>
+          <span class="original-price">1,199.99 ZMW.</span>
+        </div>
+        <button class="deal-btn">Shop Now</button>
+      </div>
+    </section>
 
     <script src="script.js"></script>
   </body>
