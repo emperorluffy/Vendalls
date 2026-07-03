@@ -698,3 +698,56 @@ body {
     white-space: nowrap;
   }
 }
+
+/* --- Laptop Section Mobile Responsiveness --- */
+@media (max-width: 900px) {
+  .laptop-showcase-section {
+    padding: 30px 16px; /* Tighten up spacing for standard mobile viewports */
+  }
+
+  .showcase-container {
+    /* Switch to a pure single-column container flow */
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* Hides the 'Laptop Types' showcase category list entirely on mobile layout paths */
+  .laptop-types-sidebar {
+    display: none !important;
+  }
+
+  /* Force the product images grid to lay out in exact pairs of two */
+  .images-grid-display {
+    display: grid;
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ) !important; /* Locks structural layout to exactly 2 columns */
+    gap: 12px; /* Balanced spacing between the paired grid blocks */
+  }
+
+  /* Shrink padding and sizes so pairs fit without stretching card nodes vertically */
+  .grid-card {
+    border-radius: 6px;
+  }
+
+  .image-wrapper {
+    height: 140px; /* Reduces image container box tracking height to look sharp in pairs */
+    padding: 8px;
+  }
+
+  .card-meta {
+    padding: 10px;
+  }
+
+  .card-meta h4 {
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Smoothly clips title strings if they exceed card box limits */
+  }
+
+  .card-meta span {
+    font-size: 11px;
+  }
+}
